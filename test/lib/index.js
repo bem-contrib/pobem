@@ -163,7 +163,7 @@ describe('plugin', () => {
 
     describe('custom delimeters', function() {
         it('mods', function() {
-            process.env.REBEM_MOD_DELIM = '~~';
+            process.env.BEM_MOD_DELIM = '~~';
 
             const CustomPlugin = requireUncached('../../lib/');
 
@@ -174,7 +174,7 @@ describe('plugin', () => {
         });
 
         it('elem', function() {
-            process.env.REBEM_ELEM_DELIM = '--';
+            process.env.BEM_ELEM_DELIM = '--';
 
             const CustomPlugin = requireUncached('../../lib/');
 

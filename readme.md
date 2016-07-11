@@ -134,8 +134,8 @@ Default delimeters are `_` for modifiers and `__` for elements, but you can chan
 plugins: [
     new webpack.DefinePlugin({
         'process.env': {
-            REBEM_MOD_DELIM: JSON.stringify('--'),
-            REBEM_ELEM_DELIM: JSON.stringify('~~')
+            BEM_MOD_DELIM: JSON.stringify('--'),
+            BEM_ELEM_DELIM: JSON.stringify('~~')
         }
     })
 ]
