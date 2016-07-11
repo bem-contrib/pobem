@@ -1,6 +1,6 @@
 {
   "name": "pobems",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "BEM syntax for CSS",
   "keywords": [
     "rebem",
