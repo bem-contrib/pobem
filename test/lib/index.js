@@ -27,6 +27,20 @@ describe('plugin', () => {
             );
         });
 
+        it('block name with double quotes', () => {
+            test(
+                ':block("block1") :block("block2")',
+                '.block1 .block2'
+            );
+        });
+
+        it('block name with single quotes', () => {
+            test(
+                ':block(\'block1\') :block(\'block2\')',
+                '.block1 .block2'
+            );
+        });
+
         it('with other tags', () => {
             test(
                 ':block(block1) div :block(bl2) img',
@@ -85,6 +99,20 @@ describe('plugin', () => {
                 test(
                     ':block(block):mod(mod val)',
                     '.block_mod_val'
+                );
+            });
+
+            it('block mod with double quotes', () => {
+                test(
+                    ':block("block1"):mod("mod", "val")',
+                    '.block1_mod_val'
+                );
+            });
+
+            it('block mod with single quotes', () => {
+                test(
+                    ':block(\'block1\'):mod(\'mod\',\'val\')',
+                    '.block1_mod_val'
                 );
             });
 
