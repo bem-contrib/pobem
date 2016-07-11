@@ -3,7 +3,7 @@
 [![coverage](https://img.shields.io/codecov/c/github/belozyorcev/pobems.svg?style=flat-square)](https://codecov.io/github/belozyorcev/pobems)
 [![deps](https://img.shields.io/gemnasium/belozyorcev/pobems.svg?style=flat-square)](https://gemnasium.com/belozyorcev/pobems)
 
-BEM syntax for CSS.
+BEM syntax for CSS. Problems? Use POBEMS!
 
 This is plugin based on rebem-css written by Kir Belevich and Denis Koltsov.
 
