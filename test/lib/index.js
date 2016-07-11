@@ -43,8 +43,8 @@ describe('plugin', () => {
 
         it('with pseudo classes', () => {
             test(
-                ':hover :block(block1):hover :block(block1):nth-of-type(2)',
-                ':hover .block1:hover .block1:nth-of-type(2)'
+                ':root :block(block1):mod(m v):hover::before :block(block1):nth-of-type(2)',
+                ':root .block1_m_v:hover::before .block1:nth-of-type(2)'
             );
         });
 
