@@ -136,6 +136,13 @@ describe('plugin', () => {
                     '.block1_mod1_val1 .block2_mod2_val2'
                 );
             });
+
+            it('mod val with delimeter "->"', () => {
+                test(
+                    ':block(block1):mod(mod1 -> val1) :block(block2):mod("mod2" -> "val2")',
+                    '.block1_mod1_val1 .block2_mod2_val2'
+                );
+            });
         });
 
         describe('elem', () => {
