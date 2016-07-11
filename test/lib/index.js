@@ -102,6 +102,13 @@ describe('plugin', () => {
                 );
             });
 
+            it('multiple blocks mods with delimeter "-" in value', () => {
+                test(
+                    ':block(block):mod(mod val-1) :block(block):elem(icon)',
+                    '.block_mod_val-1 .block__icon'
+                );
+            });
+
             it('block mod', () => {
                 test(
                     ':block(block):mod(mod val)',
