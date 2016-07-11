@@ -41,6 +41,13 @@ describe('plugin', () => {
             );
         });
 
+        it('with pseudo classes', () => {
+            test(
+                ':hover :block(block1):hover :block(block1):nth-of-type(2)',
+                ':hover .block1:hover .block1:nth-of-type(2)'
+            );
+        });
+
         it('with other tags', () => {
             test(
                 ':block(block1) div :block(bl2) img',
