@@ -22,8 +22,8 @@ describe('plugin', () => {
 
         it('multiple blocks', () => {
             test(
-                ':block(block1) :block(block2)',
-                '.block1 .block2'
+                ':block(block1):elem(elem) :block(block2)',
+                '.block1__elem .block2'
             );
         });
 
