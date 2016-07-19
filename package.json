@@ -1,19 +1,17 @@
 {
-  "name": "pobems",
-  "version": "0.3.2",
+  "name": "pobem",
+  "version": "1.0.0",
   "description": "BEM syntax for CSS",
   "keywords": [
-    "rebem",
     "bem",
     "css",
-    "postcss"
+    "postcss",
+    "css"
   ],
-  "homepage": "https://github.com/belozyorcev/pobems",
-  "repository": "belozyorcev/pobems",
+  "homepage": "https://github.com/belozyorcev/pobem",
+  "repository": "belozyorcev/pobem",
   "maintainers": [
     "Sergey Belozyorcev <belozyorcev@ya.ru> (https://github.com/belozyorcev)",
-    "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
-    "Denis Koltsov <iam@mistadikay.com> (https://github.com/mistadikay)"
   ],
   "main": "build/index.js",
   "files": [
