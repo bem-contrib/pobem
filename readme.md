@@ -1,102 +1,113 @@
-[![npm](https://img.shields.io/npm/v/pobems.svg?style=flat-square)](https://www.npmjs.com/package/pobems)
-[![travis](http://img.shields.io/travis/rebem/css.svg?style=flat-square)](https://travis-ci.org/belozyorcev/pobems)
-[![coverage](https://img.shields.io/codecov/c/github/belozyorcev/pobems.svg?style=flat-square)](https://codecov.io/github/belozyorcev/pobems)
-[![deps](https://img.shields.io/gemnasium/belozyorcev/pobems.svg?style=flat-square)](https://gemnasium.com/belozyorcev/pobems)
+[![npm](https://img.shields.io/npm/v/pobem.svg?style=flat-square)](https://www.npmjs.com/package/pobem)
+[![travis](http://img.shields.io/travis/rebem/css.svg?style=flat-square)](https://travis-ci.org/belozyorcev/pobem)
+[![coverage](https://img.shields.io/codecov/c/github/belozyorcev/pobem.svg?style=flat-square)](https://codecov.io/github/belozyorcev/pobem)
+[![deps](https://img.shields.io/gemnasium/belozyorcev/pobem.svg?style=flat-square)](https://gemnasium.com/belozyorcev/pobem)
 
-BEM syntax for CSS. Problems? Use POBEMS!
+# Pobem - postcss plugin for BEM
 
-This is plugin based on rebem-css written by Kir Belevich and Denis Koltsov.
+BEM syntax for CSS problem? Use POBEM!
 
 ## Overview
 
-### Dead simple
-
-It just replaces substrings in selectors:
-
-#### `:block()`
+### Using with postcss-nested or less/sass
 
 ```css
-:block(block) {}
-.block {}
-```
-
-#### `:elem()`
-
-```css
-:block(block):elem(elem) {}
-.block__elem {}
-
-:block(block):elem(elem) :elem(elem2) :block(block2):elem(elem) {}
-.block__elem .block__elem2 .block2__elem {}
-```
-
-#### `:mod()`
-
-```css
-:block(block):mod(mod) {}
-.block_mod {}
-
-:block(block):mod(mod val) {}
-.block_mod_val {}
-
-:block(block):mod(mod val):mod(mod2) {}
-.block_mod_val.block_mod2 {}
-```
-
-```css
-:block(block):elem(elem):mod(mod) {}
-.block__elem_mod {}
-
-:block(block):elem(elem):mod(mod val) {}
-.block__elem_mod_val {}
-```
-
-### CSS compatible
-
-It's just a custom pseudo-classes, so you can use it with Less or any other CSS preprocessor:
-
-```less
-:block(block) {
-    &:mod(mod) {
-        :elem(elem) {
-
+block('block') {
+    /* .block {} */
+    mod('mod', 'val') {
+        /* .block_mod_val */
+        mod('mod2', 'val2') {
+          /* .block_mod_val.block_mod2_val2 */
+        }
+        elem('elem') {
+            /* .block_mod_val .block__elem */
+            mod('mod', 'val') {
+              /* .block_mod_val .block__elem_mod_val */
+            }
         }
     }
 
-    &:elem(elem) {
-        &:mod(mod val) {
-
+    elem('elem') {
+        /* .block__elem */
+        div {
+          /* .block__elem div */
         }
     }
+
 }
 ```
 
+### Using with stylus
+
+```stylus
+block('block')
+    // .block
+    // styles
+    mod('mod' -> 'val')
+        // .block_mod_val
+        // styles
+        mod('mod2' -> 'val2')
+            // .block_mod_val.block_mod2_val2
+            // styles
+        elem('elem')
+            // .block_mod_val .block__elem
+            // styles
+            mod('mod' -> 'val')
+                // .block_mod_val .block__elem_mod_val
+                // styles
+
+    elem('elem')
+        // .block__elem
+        // styles
+        div
+          // .block__elem div
+          // styles
+
+```
+
+### Combine chain syntax
+
+```less
+block('block').elem('elem') {}
+/*.block__elem {} */
+```
+
+### Using pseudo elements
+
+```less
+block('block').elem('elem'):hover {
+    /* .block__elem:hover */
+}
+```
+
+Quotes and delimiters between words optional
+
 ## Usage
 
-`pobems` is a [PostCSS](https://github.com/postcss/postcss) plugin.
+`pobem` is a [PostCSS](https://github.com/postcss/postcss) plugin.
 
 ### CLI
 
 ```sh
-npm i -S postcss postcss-cli pobems
+npm i -S postcss postcss-cli pobem
 ```
 
 ```sh
-postcss --use pobems test.css -o test.css
+postcss --use pobem test.css -o test.css
 ```
 
 ### API
 
 ```sh
-npm i -S postcss pobems
+npm i -S postcss pobem
 ```
 
 ```js
 import postcss from 'postcss';
-import pobems from 'pobems';
+import pobem from 'pobem';
 
 console.log(
-    postcss([ pobems ]).process(':block(block) {}').css
+    postcss([ pobem ]).process('block(block) {}').css
 );
 // .block {}
 ```
@@ -104,11 +115,11 @@ console.log(
 ### webpack
 
 ```sh
-npm i -S postcss postcss-loader pobems
+npm i -S postcss postcss-loader pobem
 ```
 
 ```js
-import pobems from 'pobems';
+import pobem from 'pobem';
 
 export default {
     module: {
@@ -120,7 +131,7 @@ export default {
         ]
     },
     postcss() {
-        return [ pobems ];
+        return [ pobem ];
     }
 };
 ```
