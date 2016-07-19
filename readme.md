@@ -80,7 +80,9 @@ block('block').elem('elem'):hover {
 }
 ```
 
-Quotes and delimiters between words optional
+### Quotes and delimiters between `mod` `val` optional
+
+`block(block).mod(mod val) === block('block').mod('mod', 'val')`
 
 ## Usage
 
