@@ -5,6 +5,10 @@
 
 BEM syntax for CSS. Problems? Use POBEMS!
 
+> _This is old version_!
+Please using [pobem](https://www.npmjs.com/package/pobem) (next step development pobems)
+
+
 This is plugin based on rebem-css written by Kir Belevich and Denis Koltsov.
 
 ## Overview
