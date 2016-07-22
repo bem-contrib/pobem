@@ -11,58 +11,37 @@ BEM syntax for CSS problem? Use POBEM!
 
 ### Using with postcss-nested or less/sass
 
-```css
-block('block') {
-    /* .block {} */
-    mod('mod', 'val') {
-        /* .block_mod_val */
-        mod('mod2', 'val2') {
-          /* .block_mod_val.block_mod2_val2 */
-        }
-        elem('elem') {
-            /* .block_mod_val .block__elem */
-            mod('mod', 'val') {
-              /* .block_mod_val .block__elem_mod_val */
-            }
-        }
+```less
+block('block').mod('mod', 'val') { /* 1 */
+    mod('mod2', 'val2') {  /* 2 */
+        color: #444223;
     }
 
-    elem('elem') {
-        /* .block__elem */
-        div {
-          /* .block__elem div */
+    elem('elem') {  /* 3 */
+        width: 100px;
+
+        mod('mod', 'val') {  /* 4 */
+          width: 40px;
         }
     }
-
 }
+```
+```css
+1 -> .block_mod_val
+2 -> .block_mod_val.block_mod2_val2
+3 -> .block_mod_val .block__elem
+4 -> .block_mod_val .block__elem_mod_val
 ```
 
 ### Using with stylus
 
 ```stylus
-block('block')
-    // .block
-    // styles
-    mod('mod' -> 'val')
-        // .block_mod_val
-        // styles
-        mod('mod2' -> 'val2')
-            // .block_mod_val.block_mod2_val2
-            // styles
-        elem('elem')
-            // .block_mod_val .block__elem
-            // styles
-            mod('mod' -> 'val')
-                // .block_mod_val .block__elem_mod_val
-                // styles
+block('block').mod('mod' -> 'val')
+    mod('mod2' -> 'val2')
+        color: #444223
 
     elem('elem')
-        // .block__elem
-        // styles
-        div
-          // .block__elem div
-          // styles
-
+        width: 100px
 ```
 
 ### Combine chain syntax
