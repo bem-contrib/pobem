@@ -24,6 +24,10 @@ block('block').mod('mod', 'val') { /* 1 */
           width: 40px;
         }
     }
+
+    > h2 { /* 5 */
+      opacity: .3;
+    }
 }
 ```
 ```css
@@ -31,6 +35,7 @@ block('block').mod('mod', 'val') { /* 1 */
 2 -> .block_mod_val.block_mod2_val2
 3 -> .block_mod_val .block__elem
 4 -> .block_mod_val .block__elem_mod_val
+5 -> .block_mod_val > h2
 ```
 
 ### Using with stylus
@@ -42,26 +47,28 @@ block('block').mod('mod' -> 'val')
 
     elem('elem')
         width: 100px
+
+    > h2
+      opacity: .3
 ```
 
-### Combine chain syntax
+### Combined chain syntax
 
 ```less
 block('block').elem('elem') {}
-/*.block__elem {} */
+-> .block__elem {}
 ```
 
 ### Using pseudo elements
 
 ```less
-block('block').elem('elem'):hover {
-    /* .block__elem:hover */
-}
+block('block').elem('elem'):after {}
+-> .block__elem:after {}
 ```
 
-### Quotes and delimiters between `mod` `val` optional
+### Quotes and delimiters between `mod` `val` is optional
 
-`block(block).mod(mod val) === block('block').mod('mod', 'val')`
+`block(block).mod(mod val) === block('block').mod('mod', 'val') === block('block').mod('mod' -> 'val')`
 
 ## Usage
 
