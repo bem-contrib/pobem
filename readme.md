@@ -21,12 +21,12 @@ block('block').mod('mod', 'val') { /* 1 */
         width: 100px;
 
         mod('mod', 'val') {  /* 4 */
-          width: 40px;
+            width: 40px;
         }
     }
 
     > h2 { /* 5 */
-      opacity: .3;
+        opacity: .3;
     }
 }
 ```
@@ -49,7 +49,7 @@ block('block').mod('mod' -> 'val')
         width: 100px
 
     > h2
-      opacity: .3
+        opacity: .3
 ```
 
 ### Combined chain syntax
