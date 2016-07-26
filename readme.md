@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/pobem.svg?style=flat-square)](https://www.npmjs.com/package/pobem)
-[![travis](http://img.shields.io/travis/bem-contrib/css.svg?style=flat-square)](https://travis-ci.org/bem-contrib/pobem)
+[![travis](http://img.shields.io/travis/bem-contrib/pobem.svg?style=flat-square)](https://travis-ci.org/bem-contrib/pobem)
 [![coverage](https://img.shields.io/codecov/c/github/bem-contrib/pobem.svg?style=flat-square)](https://codecov.io/github/bem-contrib/pobem)
 
 # Pobem - postcss plugin for BEM
