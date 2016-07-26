@@ -196,6 +196,29 @@ describe('plugin', () => {
         });
     });
 
+    describe('rebem syntax style', () => {
+        it('block', () => {
+            test(
+                ':block(block)',
+                '.block'
+            )
+        });
+
+        it('elem', () => {
+            test(
+                ':block(block):elem(elem)',
+                '.block__elem'
+            )
+        });
+
+        it('pseudo', () => {
+            test(
+                ':block(block):after',
+                '.block:after'
+            )
+        });
+    });
+
     describe('custom delimeters', function() {
         it('mods', function() {
             process.env.BEM_MOD_DELIM = '~~';
