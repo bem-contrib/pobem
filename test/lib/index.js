@@ -27,6 +27,13 @@ describe('plugin', () => {
             );
         });
 
+        it('mixed block', () => {
+            test(
+                'block(block1).elem(elem).block(block2)',
+                '.block1__elem.block2'
+            );
+        });
+
         it('block name with double quotes', () => {
             test(
                 'block("block1") block("block2")',
@@ -45,6 +52,13 @@ describe('plugin', () => {
             test(
                 ':root block(block1).mod(m v):hover::before block(block1):nth-of-type(2)',
                 ':root .block1_m_v:hover::before .block1:nth-of-type(2)'
+            );
+        });
+
+        it('selector with attrs', () => {
+            test(
+                'block(menu)[class*=\'menu_mode\']',
+                '.menu[class*=\'menu_mode\']'
             );
         });
 
