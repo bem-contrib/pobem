@@ -5,7 +5,6 @@
 :block(block):elem(elem):mod(mod val) {}
 :block(block):elem(elem):mod(mod val):block(mixed-block) {}
 :block(block):elem(elem):mod(mod val):block(block):elem(elem):mod(mod2):block(mixed-block) {}
-:block(block):elem(elem):mod(mod val):block(block):elem(elem):mod(mod2):block(mixed-block) {}
 ```
 
 Короткая версия Rebem-css, если использовать контекст pobem
