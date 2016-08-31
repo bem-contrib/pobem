@@ -11,16 +11,16 @@ BEM syntax for CSS problem? Use POBEM!
 
 ### Using with postcss-nested or less/sass
 
-```less
-block('block').mod('mod', 'val') { /* 1 */
-    mod('mod2', 'val2') {  /* 2 */
+```stylus
+block(block).mod(mod val) { /* 1 */
+    mod(mod2 val2) {  /* 2 */
         color: #444223;
     }
 
-    elem('elem') {  /* 3 */
+    elem(elem) {  /* 3 */
         width: 100px;
 
-        mod('mod', 'val') {  /* 4 */
+        mod(mod val) {  /* 4 */
             width: 40px;
         }
     }
@@ -41,11 +41,11 @@ block('block').mod('mod', 'val') { /* 1 */
 ### Using with stylus
 
 ```stylus
-block('block').mod('mod' -> 'val')
-    mod('mod2' -> 'val2')
+block(block).mod(mod val)
+    mod(mod2 val2)
         color: #444223
 
-    elem('elem')
+    elem(elem)
         width: 100px
 
     > h2
@@ -54,15 +54,15 @@ block('block').mod('mod' -> 'val')
 
 ### Combined chain syntax
 
-```less
-block('block').elem('elem') {}
+```stylus
+block(block).elem(elem) {}
 -> .block__elem {}
 ```
 
 ### Using pseudo elements
 
-```less
-block('block').elem('elem'):after {}
+```stylus
+block(block).elem(elem):after {}
 -> .block__elem:after {}
 ```
 
