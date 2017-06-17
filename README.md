@@ -126,16 +126,18 @@ export default {
 
 ### Custom delimeters
 
-Default delimeters are `_` for modifiers and `__` for elements, but you can change it with special environment variables. For example in webpack you can do this with `DefinePlugin`:
+If you will want use another delimiters for BEM entities and still you need namespances you can change it with special plugins arguments:
 
 
 ```js
 plugins: [
-    new webpack.DefinePlugin({
-        'process.env': {
-            BEM_MOD_DELIM: JSON.stringify('--'),
-            BEM_ELEM_DELIM: JSON.stringify('~~')
-        }
+
+    // default settings
+    require('pobem')({
+        ns: '', // namespace
+        elem: '__', // element delimeter
+        modName: '--', // modifier delimeter
+        modValue: '-', // value delimeter for modifier
     })
 ]
 ```
