@@ -135,8 +135,8 @@ plugins: [
     // default settings
     require('pobem')({
         ns: '', // namespace
-        el: '__', // element delimeter
-        mod: '--', // modifier delimeter
+        elem: '__', // element delimeter
+        modName: '--', // modifier delimeter
         modValue: '-', // value delimeter for modifier
     })
 ]
