@@ -12,6 +12,31 @@ const test = (selector, result) => {
 };
 
 describe('plugin', () => {
+    describe('Aliases for start entity', () => {
+        it('dot', () => {
+            test(
+                '.block(foo)',
+                '.foo'
+            );
+        });
+        it('colon', () => {
+            test(
+                ':block(foo)',
+                '.foo'
+            );
+        });
+        it('at', () => {
+            test(
+                '@block(foo)',
+                '.foo'
+            );
+            test(
+                '@media',
+                '@media'
+            );
+        });
+    });
+
     describe('block', () => {
         it('simple', () => {
             test(
