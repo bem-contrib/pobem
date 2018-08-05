@@ -52,22 +52,15 @@ describe('plugin', () => {
     describe('elem', () => {
         it('simple', () => {
             test(
-                '.block .__elem',
+                '.block__elem',
                 '.block__elem'
             );
         });
 
-        it('multiple blocks elems', () => {
+        it('child elem', () => {
             test(
-                '.block1 .__elem1 .block2 .__elem)',
-                '.block1__elem1 .block2__elem2'
-            );
-        });
-
-        it('block multiple short elems', () => {
-            test(
-                '.block1 .__elem1 .__elem2 .__elem3',
-                '.block1__elem1 .block1__elem2 .block1__elem3'
+                '.block1__elem1 __elem2',
+                '.block1__elem1 .block1__elem2'
             );
         });
     });
@@ -88,31 +81,10 @@ describe('plugin', () => {
                 );
             });
 
-            it('multiple blocks shorts mods', () => {
+            it('block mod with val', () => {
                 test(
-                    '.block1_mod1 .block2_mod2',
-                    '.block1_mod1 .block2_mod2'
-                );
-            });
-
-            it('multiple blocks mods with delimeter "-" in value', () => {
-                test(
-                    '.block_mod_val-1 .__icon',
-                    '.block_mod_val-1 .block__icon'
-                );
-            });
-
-            it('block mod', () => {
-                test(
-                    '.block_mod_val',
-                    '.block_mod_val'
-                );
-            });
-
-            it('multiple blocks mods', () => {
-                test(
-                    '.block1_mod1_val1 .block2_mod2_val2',
-                    '.block1_mod1_val1 .block2_mod2_val2'
+                    '.block._mod_val',
+                    '.block.block_mod_val'
                 );
             });
         });
@@ -120,8 +92,8 @@ describe('plugin', () => {
         describe('elem', () => {
             it('elem short mod', () => {
                 test(
-                    '.block__elem_mod',
-                    '.block__elem_mod'
+                    '.block__elem._mod',
+                    '.block__elem.block__elem_mod'
                 );
             });
             it('elem multiple short mods', () => {

@@ -18,7 +18,10 @@
     "build/"
   ],
   "dependencies": {
-    "postcss": "5.0.x"
+    "@bem/sdk.entity-name": "^0.2.10",
+    "postcss": "5.0.x",
+    "postcss-selector-parser": "^5.0.0-rc.3",
+    "sucrase": "^3.4.1"
   },
   "devDependencies": {
     "babel-eslint": "5.0.x",

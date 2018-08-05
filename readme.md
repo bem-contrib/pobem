@@ -9,18 +9,33 @@ BEM syntax for CSS problem? Use POBEM!
 
 ## Overview
 
+### In vanilla css
+
+```css
+.block_mod_val:not(__text) __icon {}
+
+// result
+.block_mod_val:not(.block__text) .block__icon {}
+
+.block_mod_val._second-mod __icon {}
+// result
+.block_mod_val.block_second-mod .block__icon {}
+
+```
+
 ### Using with postcss-nested or less/sass
 
 ```stylus
-block(block).mod(mod val) { /* 1 */
-    mod(mod2 val2) {  /* 2 */
+
+.block_mod_val { /* 1 */
+    _mod2_val2 {  /* 2 */
         color: #444223;
     }
 
-    elem(elem) {  /* 3 */
+    __elem {  /* 3 */
         width: 100px;
 
-        mod(mod val) {  /* 4 */
+        _mod_val {  /* 4 */
             width: 40px;
         }
     }
@@ -38,37 +53,6 @@ block(block).mod(mod val) { /* 1 */
 5 -> .block_mod_val > h2
 ```
 
-### Using with stylus
-
-```stylus
-block(block).mod(mod val)
-    mod(mod2 val2)
-        color: #444223
-
-    elem(elem)
-        width: 100px
-
-    > h2
-        opacity: .3
-```
-
-### Combined chain syntax
-
-```stylus
-block(block).elem(elem) {}
--> .block__elem {}
-```
-
-### Using pseudo elements
-
-```stylus
-block(block).elem(elem):after {}
--> .block__elem:after {}
-```
-
-### Quotes and delimiters between `mod` `val` is optional
-
-`block(block).mod(mod val) === block('block').mod('mod', 'val') === block('block').mod('mod' -> 'val')`
 
 ## Usage
 
@@ -95,9 +79,9 @@ import postcss from 'postcss';
 import pobem from 'pobem';
 
 console.log(
-    postcss([ pobem ]).process('block(block) {}').css
+    postcss([ pobem ]).process('.block_mod_val __elem {}').css
 );
-// .block {}
+// .block_mod_val .block__elem {}
 ```
 
 ### webpack
@@ -122,20 +106,4 @@ export default {
         return [ pobem ];
     }
 };
-```
-
-### Custom delimeters
-
-Default delimeters are `_` for modifiers and `__` for elements, but you can change it with special environment variables. For example in webpack you can do this with `DefinePlugin`:
-
-
-```js
-plugins: [
-    new webpack.DefinePlugin({
-        'process.env': {
-            BEM_MOD_DELIM: JSON.stringify('--'),
-            BEM_ELEM_DELIM: JSON.stringify('~~')
-        }
-    })
-]
 ```
