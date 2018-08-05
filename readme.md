@@ -12,15 +12,15 @@ BEM syntax for CSS problem? Use POBEM!
 ### In vanilla css
 
 ```css
+// input
 .block_mod_val:not(__text) __icon {}
-
-// result
+// output
 .block_mod_val:not(.block__text) .block__icon {}
 
-.block_mod_val._second-mod __icon {}
-// result
-.block_mod_val.block_second-mod .block__icon {}
-
+// input
+.block_mod_val._second-mod > h2 __icon {}
+// output
+.block_mod_val.block_second-mod > h2 .block__icon {}
 ```
 
 ### Using with postcss-nested or less/sass

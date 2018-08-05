@@ -36,7 +36,7 @@
     "start-rebem-preset": "0.x.x"
   },
   "scripts": {
-    "start2": "start-runner start-rebem-preset",
+    "start": "start-runner start-rebem-preset",
     "prepush": "npm start prepush",
     "prepublish": "npm start build"
   },
