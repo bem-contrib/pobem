@@ -47,6 +47,13 @@ describe('plugin', () => {
                 '.block1 div .bl2 img'
             );
         });
+
+        it('pseudo elements should don\'t not effect root scope', () => {
+            test(
+                '.block:not(.block2) __elem',
+                '.block:not(.block2) .block__elem'
+            )
+        })
     });
 
     describe('elem', () => {
@@ -69,7 +76,7 @@ describe('plugin', () => {
                 '.block:not(__elem)',
                 '.block:not(.block__elem)'
             )
-        })
+        });
     });
 
     describe('mod', () => {
