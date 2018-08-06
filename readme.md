@@ -28,14 +28,14 @@ BEM syntax for CSS problem? Use POBEM!
 ```stylus
 
 .block_mod_val { /* 1 */
-    _mod2_val2 {  /* 2 */
+    &._mod2_val2 {  /* 2 */
         color: #444223;
     }
 
     __elem {  /* 3 */
         width: 100px;
 
-        _mod_val {  /* 4 */
+        &._mod_val {  /* 4 */
             width: 40px;
         }
     }

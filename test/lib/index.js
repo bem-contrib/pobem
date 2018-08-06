@@ -63,6 +63,13 @@ describe('plugin', () => {
                 '.block1__elem1 .block1__elem2'
             );
         });
+
+        it('elem in pseudo :not', () => {
+            test(
+                '.block:not(__elem)',
+                '.block:not(.block__elem)'
+            )
+        })
     });
 
     describe('mod', () => {
